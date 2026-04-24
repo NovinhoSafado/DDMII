@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Calabreso | Maquiador Funerário</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: #1a1a1a;
+            color: #d4c5b2;
+            line-height: 1.8;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">⚜️</text></svg>') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom: 3px solid #8b7355;
+        }
+
+        .logo-symbol {
+            font-size: 5rem;
+            color: #c9a96e;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(201,169,110,0.3);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 400;
+            letter-spacing: 6px;
+            color: #e0d5c7;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            font-style: italic;
+            color: #c9a96e;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #9e8d7b;
+            max-width: 600px;
+        }
+
+        nav {
+            position: absolute;
+            top: 40px;
+            right: 60px;
+        }
+
+        nav a {
+            color: #b8a690;
+            text-decoration: none;
+            margin-left: 40px;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            padding-bottom: 5px;
+            border-bottom: 1px solid transparent;
+        }
+
+        nav a:hover {
+            color: #c9a96e;
+            border-bottom-color: #c9a96e;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: 4px;
+            color: #c9a96e;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 2px;
+            background: #8b7355;
+            margin: 20px auto 0;
+        }
+
+        /* Sobre */
+        #sobre {
+            background-color: #1f1f1f;
+        }
+
+        .sobre-container {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .sobre-img {
+            width: 350px;
+            height: 420px;
+            background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+            border: 1px solid #8b7355;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .sobre-img .placeholder {
+            font-size: 6rem;
+            color: #3a3a3a;
+        }
+
+        .sobre-texto h3 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: #e0d5c7;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+        }
+
+        .sobre-texto p {
+            color: #a89880;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .credenciais {
+            display: flex;
+            gap: 50px;
+            margin-top: 35px;
+        }
+
+        .credencial {
+            text-align: center;
+        }
+
+        .credencial .numero {
+            font-size: 2.5rem;
+            color: #c9a96e;
+            font-family: 'Georgia', serif;
+        }
+
+        .credencial .label {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            color: #8b7355;
+            text-transform: uppercase;
+        }
+
+        /* Serviços */
+        #servicos {
+            background-color: #1a1a1a;
+        }
+
+        .servicos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .servico-card {
+            background: #1f1f1f;
+            border: 1px solid #2a2a2a;
+            padding: 45px 30px;
+            text-align: center;
+            transition: all 0.4s;
+            cursor: default;
+        }
+
+        .servico-card:hover {
+            border-color: #8b7355;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .servico-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .servico-card h4 {
+            font-size: 1.3rem;
+            color: #e0d5c7;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .servico-card p {
+            color: #8b7d6b;
+            font-size: 0.95rem;
+        }
+
+        /* Portfólio */
+        #portfolio {
+            background-color: #1f1f1f;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .portfolio-item {
+            height: 300px;
+            background: #2a2a2a;
+            border: 1px solid #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s;
+        }
+
+        .portfolio-item:hover {
+            border-color: #8b7355;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.85);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.4s;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+
+        .portfolio-overlay h5 {
+            color: #c9a96e;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            font-weight: 400;
+        }
+
+        .portfolio-overlay p {
+            color: #9e8d7b;
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+
+        .portfolio-placeholder {
+            font-size: 5rem;
+            color: #3a3a3a;
+        }
+
+        /* Depoimentos */
+        #depoimentos {
+            background-color: #1a1a1a;
+        }
+
+        .depoimentos-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .depoimento {
+            background: #1f1f1f;
+            border-left: 3px solid #8b7355;
+            padding: 35px 40px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .depoimento p {
+            font-style: italic;
+            color: #c5b8a6;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .depoimento .autor {
+            color: #c9a96e;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        .aspas {
+            font-size: 5rem;
+            color: #8b7355;
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            opacity: 0.2;
+            font-family: serif;
+        }
+
+        /* Contato */
+        #contato {
+            background-color: #1f1f1f;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        .contato-container {
+            display: flex;
+            gap: 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .contato-info, .contato-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contato-info h3 {
+            font-size: 1.6rem;
+            color: #e0d5c7;
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
+
+        .contato-info p {
+            color: #a89880;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .contato-info .icon {
+            font-size: 1.3rem;
+        }
+
+        .contato-form input,
+        .contato-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            color: #d4c5b2;
+            font-family: 'Georgia', serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .contato-form input:focus,
+        .contato-form textarea:focus {
+            outline: none;
+            border-color: #8b7355;
+        }
+
+        .contato-form textarea {
+            height: 130px;
+            resize: vertical;
+        }
+
+        .btn {
+            background: transparent;
+            border: 1px solid #8b7355;
+            color: #c9a96e;
+            padding: 14px 45px;
+            font-size: 0.95rem;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: all 0.4s;
+            text-transform: uppercase;
+            font-family: 'Georgia', serif;
+        }
+
+        .btn:hover {
+            background: #8b7355;
+            color: #1a1a1a;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            text-align: center;
+            padding: 40px;
+            color: #5a4e40;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            border-top: 1px solid #1a1a1a;
+        }
+
+        footer span {
+            color: #8b7355;
+        }
+
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+                letter-spacing: 3px;
+            }
+
+            .sobre-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .credenciais {
+                justify-content: center;
+            }
+
+            nav {
+                position: static;
+                margin-top: 30px;
+            }
+
+            nav a {
+                margin: 0 15px;
+                font-size: 0.75rem;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="home">
+        <nav>
+            <a href="#sobre">Sobre</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#portfolio">Portfólio</a>
+            <a href="#depoimentos">Depoimentos</a>
+            <a href="#contato">Contato</a>
+        </nav>
+
+        <div class="logo-symbol">⚜️</div>
+        <h1>John Calabreso</h1>
+        <p class="subtitle">Maquiador Funerário</p>
+        <p>Devolvendo dignidade, serenidade e a verdadeira essência<br>para a última despedida.</p>
+    </header>
+
+    <!-- Sobre -->
+    <section id="sobre">
+        <h2 class="section-title">Sobre Mim</h2>
+        <div class="sobre-container">
+            <div class="sobre-img">
+                <span class="placeholder">🕊️</span>
+            </div>
+            <div class="sobre-texto">
+                <h3>Arte que transcende</h3>
+                <p>
+                    Com mais de 18 anos de experiência, dedico minha vida a restaurar 
+                    a aparência natural daqueles que partiram, trazendo conforto visual 
+                    às famílias em seu momento mais delicado. Minha formação em tanatopraxia 
+                    e cosmetologia funerária me permite atuar com precisão técnica e profunda 
+                    sensibilidade humana.
+                </p>
+                <p>
+                    Cada rosto que preparo carrega uma história única. Meu compromisso 
+                    é honrar essa história com o mais alto padrão de excelência e respeito.
+                </p>
+                <div class="credenciais">
+                    <div class="credencial">
+                        <div class="numero">18+</div>
+                        <div class="label">Anos de Experiência</div>
+                    </div>
+                    <div class="credencial">
+                        <div class="numero">3.200+</div>
+                        <div class="label">Famílias Atendidas</div>
+                    </div>
+                    <div class="credencial">
+                        <div class="numero">12</div>
+                        <div class="label">Certificações</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos">
+        <h2 class="section-title">Serviços</h2>
+        <div class="servicos-grid">
+            <div class="servico-card">
+                <div class="servico-icon">🎨</div>
+                <h4>Maquiagem Restauradora</h4>
+                <p>Técnicas avançadas para reconstituir feições naturais com precisão, 
+                respeitando o tom de pele e características únicas do falecido.</p>
+            </div>
+            <div class="servico-card">
+                <div class="servico-icon">🕯️</div>
+                <h4>Preparação para Velório</h4>
+                <p>Preparo completo com cosméticos hipoalergênicos de longa duração, 
+                garantindo uma apresentação serena durante todo o velório.</p>
+            </div>
+            <div class="servico-card">
+                <div class="servico-icon">🤲</div>
+                <h4>Reconstrução Facial</h4>
+                <p>Técnicas de reconstrução com ceras e materiais especiais para 
+                casos de trauma, devolvendo a identidade visual com dignidade.</p>
+            </div>
+            <div class="servico-card">
+                <div class="servico-icon">📋</div>
+                <h4>Consultoria para Funerárias</h4>
+                <p>Treinamento de equipes, protocolos de preparação e consultoria 
+                completa em tanatoestética para casas funerárias.</p>
+            </div>
+            <div class="servico-card">
+                <div class="servico-icon">💐</div>
+                <h4>Pacote Completo</h4>
+                <p>Serviço completo incluindo higienização, tanatopraxia, maquiagem 
+                e arrumação final, com acompanhamento dedicado.</p>
+            </div>
+            <div class="servico-card">
+                <div class="servico-icon">✈️</div>
+                <h4>Translado Internacional</h4>
+                <p>Preparação para traslados internacionais seguindo normas sanitárias 
+                de cada país, incluindo documentação necessária.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfólio -->
+    <section id="portfolio">
+        <h2 class="section-title">Galeria de Trabalhos</h2>
+        <p style="text-align:center; color:#8b7d6b; margin-bottom:50px; max-width:600px; margin-left:auto; margin-right:auto; font-style:italic;">
+            * Por respeito às famílias, as imagens reais são exibidas apenas mediante 
+            autorização e em consulta presencial.
+        </p>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <span class="portfolio-placeholder">🕊️</span>
+                <div class="portfolio-overlay">
+                    <h5>Restauração Facial</h5>
+                    <p>Técnica de reconstrução com cera</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <span class="portfolio-placeholder">🌹</span>
+                <div class="portfolio-overlay">
+                    <h5>Maquiagem Natural</h5>
+                    <p>Acabamento em tom terroso suave</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <span class="portfolio-placeholder">✨</span>
+                <div class="portfolio-overlay">
+                    <h5>Preparo Sênior</h5>
+                    <p>Maquiagem para pele madura</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <span class="portfolio-placeholder">🙏</span>
+                <div class="portfolio-overlay">
+                    <h5>Caso Especial</h5>
+                    <p>Reconstrução pós-trauma</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <span class="portfolio-placeholder">💫</span>
+                <div class="portfolio-overlay">
+                    <h5>Maquiagem Clássica</h5>
+                    <p>Estilo atemporal e elegante</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <span class="portfolio-placeholder">🕯️</span>
+                <div class="portfolio-overlay">
+                    <h5>Preparo Completo</h5>
+                    <p>Pacote velório completo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="depoimentos">
+        <h2 class="section-title">Depoimentos</h2>
+        <div class="depoimentos-container">
+            <div class="depoimento">
+                <div class="aspas">"</div>
+                <p>"No momento mais difícil da nossa família, o trabalho do John nos trouxe 
+                um conforto que palavras não conseguem descrever. Minha mãe estava em paz, 
+                exatamente como nos lembrávamos dela. Eternamente grata."</p>
+                <div class="autor">— Família Oliveira</div>
+            </div>
+            <div class="depoimento">
+                <div class="aspas">"</div>
+                <p>"Profissionalismo ímpar e uma sensibilidade rara. John Calabreso é, sem 
+                dúvida, uma referência na tanatoestética brasileira. Recomendo a todas as 
+                funerárias parceiras."</p>
+                <div class="autor">— Funerária Paz Eterna</div>
+            </div>
+            <div class="depoimento">
+                <div class="aspas">"</div>
+                <p>"Ele conseguiu restaurar o rosto do meu irmão após um acidente grave. 
+                Devolveu a dignidade dele e a nossa capacidade de nos despedirmos com amor 
+                e não com choque. Um anjo na Terra."</p>
+                <div class="autor">— Família Santos</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato">
+        <h2 class="section-title">Contato</h2>
+        <div class="contato-container">
+            <div class="contato-info">
+                <h3>Entre em contato</h3>
+                <p><span class="icon">📞</span> (11) 99999-0000</p>
+                <p><span class="icon">✉️</span> contato@johncalabreso.com.br</p>
+                <p><span class="icon">📍</span> São Paulo — SP</p>
+                <p><span class="icon">🕐</span> Atendimento 24 horas</p>
+                <p style="margin-top:25px; color:#8b7d6b; font-style:italic;">
+                    "Disponível para atendimentos emergenciais<br>em todo o estado de São Paulo."
+                </p>
+            </div>
+            <form class="contato-form">
+                <input type="text" placeholder="Seu nome" required>
+                <input type="email" placeholder="Seu e-mail" required>
+                <input type="text" placeholder="Assunto">
+                <textarea placeholder="Mensagem"></textarea>
+                <button type="submit" class="btn">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <span>John Calabreso</span> — Maquiador Funerário</p>
+        <p style="margin-top:8px;">⚜️ Dignidade na última despedida ⚜️</p>
+    </footer>
+
+</body>
+</html>
